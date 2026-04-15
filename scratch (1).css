@@ -1,0 +1,270 @@
+/* scratch.css — Jack Beecher custom stylesheet */
+/* Style 1: CSS variables and base reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0d1117;
+  --bg2: #161b22;
+  --bg3: #1f2937;
+  --accent: #e8a838;
+  --accent2: #3b82f6;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --white: #ffffff;
+  --font-head: 'Georgia', 'Times New Roman', serif;
+  --font-body: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+  --radius: 6px;
+}
+
+/* Style 2: Body — font family + background color (REQUIRED: background, font-family) */
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* Style 3: Navigation div */
+div.top-nav, nav.top-nav {
+  background: var(--bg2);
+  border-bottom: 1px solid #30363d;
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+nav.top-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+nav.top-nav a:hover {
+  color: var(--accent);
+}
+
+/* Style 4: Hero div — font color, background image (REQUIRED: font-color, background) */
+.hero {
+  background-color: var(--bg3);
+  background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  padding: 2rem;
+}
+
+.hero-label {
+  color: var(--accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 {
+  font-family: var(--font-head);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+}
+
+.hero-sub {
+  color: #ccd;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #000;
+  padding: 0.75rem 2.25rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.hero-btn:hover {
+  background: #f0b84a;
+  transform: translateY(-2px);
+}
+
+/* Style 5: Section containers (div positioning — REQUIRED: divs for positioning) */
+.section {
+  padding: 5rem 1.5rem;
+}
+
+.section-dark {
+  background-color: var(--bg2);
+}
+
+.section-tinted {
+  background-color: #111827;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Style 6: Section headings — font family + font color (REQUIRED: font-family, font-color) */
+.section-heading {
+  font-family: var(--font-head);
+  font-size: 2.2rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+
+.section-heading.light {
+  color: var(--white);
+  border-bottom-color: var(--white);
+}
+
+.section-intro {
+  color: var(--muted);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  max-width: 620px;
+}
+
+/* Style 7: Destination list (REQUIRED: at least 4 styles) */
+ol.destination-list {
+  padding-left: 1.5rem;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+ol.destination-list > li {
+  margin-bottom: 1.75rem;
+}
+
+ol.destination-list > li > strong {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+ol.destination-list ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+ol.destination-list ul li {
+  margin-bottom: 0.3rem;
+}
+
+/* Style 8: Photo grid div */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.photo-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg3);
+  border: 1px solid #30363d;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-card p {
+  padding: 0.75rem 1rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* Style 9: Video wrapper div */
+.video-wrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid #30363d;
+  background: #000;
+}
+
+/* Style 10: Tableau wrapper div */
+.tableau-wrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid #30363d;
+}
+
+/* Style 11: Back to top link */
+.back-top {
+  text-align: center;
+  padding: 2rem;
+  background: var(--bg2);
+}
+
+.back-top a {
+  color: var(--accent);
+  font-size: 0.88rem;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+}
+
+.back-top a:hover {
+  text-decoration: underline;
+}
+
+/* Style 12: Footer div */
+.footer {
+  background: var(--bg);
+  border-top: 1px solid #30363d;
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.footer a {
+  color: var(--accent2);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
